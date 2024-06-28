@@ -1,0 +1,138 @@
+:root {
+  --bleu: #0073df;
+  --red: #ef4141;
+  --green: #ef4141;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, Geneva, sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+table {
+  border-collapse: collapse;
+}
+table td {
+  padding: 10px 15px;
+}
+table thead td {
+  background-color: #54585d;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #fefeff;
+}
+table tbody td {
+  color: #636363;
+  border: 1px solid #dddfe1;
+}
+table tbody tr {
+  background-color: #f9fafb;
+}
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/****** Book Control ******/
+.book-ctrl {
+  position: relative;
+  margin: 20px 0px;
+}
+
+.btn {
+  background-color: var(--bleu);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px 28px;
+  border-radius: 50px;
+  border: 0;
+  font-size: 0.9rem;
+}
+
+/************* dialog *****************/
+
+dialog {
+  /* box-shadow: 0px 8px 24px 0px rgba(140, 149, 159, 0.2); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 0;
+  border-radius: 24px;
+  padding: 38px;
+  width: 280px;
+  margin: auto auto;
+}
+
+dialog h4 {
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.input-container label {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  color: #333435;
+}
+
+.input-container input {
+  padding: 3px 3px 3px 10px;
+  font-size: 0.8rem;
+  height: 20px;
+  border-radius: 50px;
+  border: 1px solid #858585;
+  margin-top: 5px;
+}
+input.checkbox {
+  width: 18px;
+  margin-right: 10px;
+}
+div.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input::placeholder {
+  color: #9ea3a9;
+}
+
+input:focus {
+  outline: 0;
+  border: 1.5px solid var(--bleu);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.btn-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+#btn-cancel {
+  color: var(--bleu);
+  background-color: #ffffff;
+  border: 1px solid var(--bleu);
+}
+.errmessage {
+  font-size: 0.8rem;
+  color: var(--red);
+  text-align: center;
+}
+.successmessage {
+  font-size: 0.8rem;
+  color: var(--green);
+  text-align: center;
+}

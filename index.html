@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="dialog-container">
+          <dialog id="dialog">
+            <h4>Please complete form to add new a book</h4>
+
+            <form action="">
+              <div class="input-container">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Book Title"
+                  required
+                />
+              </div>
+              <div class="input-container">
+                <label for="author">Author</label>
+                <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  placeholder="Book Author"
+                  required
+                />
+              </div>
+              <div class="input-container">
+                <label for="page">Page</label>
+                <input
+                  type="number"
+                  name="pagenumber"
+                  id="page"
+                  placeholder="Page number"
+                  required
+                />
+              </div>
+              <div class="input-container checkbox">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  class="checkbox"
+                  id="checkbox"
+                />
+                <label for="checkbox">Already Read ?</label>
+              </div>
+              <p class="err-message"></p>
+              <div class="input-container btn-form-container">
+                <button
+                  type="button"
+                  name="cancel"
+                  id="btn-cancel"
+                  class="btn btn-form"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  name="addbook"
+                  id="btn-addbook"
+                  class="btn btn-form"
+                >
+                  Abb Book
+                </button>
+              </div>
+            </form>
+          </dialog>
+        </div>
+        <div class="book-ctrl">
+          <button type="button" class="btn" id="new-book">New Book</button>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <td>Code</td>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Pages</td>
+                <td>Read</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
