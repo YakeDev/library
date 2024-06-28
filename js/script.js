@@ -8,45 +8,13 @@ let bookRead = document.querySelector("input[type='checkbox']");
 let errmessage = document.querySelector(".err-message");
 let openModal = document.querySelector("#new-book");
 let modal = document.querySelector("#dialog");
+let tr = document.querySelectorAll("table tbody tr");
 
-const myLibrairy = [
-  {
-    code: 1,
-    title: "Book1",
-    author: "Author1",
-    page: "500",
-    read: "not yet",
-  },
-  {
-    code: 2,
-    title: "Book2",
-    author: "Author2",
-    page: "120",
-    read: "not yet",
-  },
-  {
-    code: 3,
-    title: "Book3",
-    author: "Author3",
-    page: "350",
-    read: "yet",
-  },
-  {
-    code: 4,
-    title: "Book4",
-    author: "Author4",
-    page: "435",
-    read: "not yet",
-  },
-];
+const myLibrairy = [];
 
-myLibrairy.push({
-  code: 5,
-  title: "Book5",
-  author: "Author4",
-  page: "435",
-  read: "yet",
-});
+let livre01 = new Book("1", "Vie avec conscience", "erickay", "100", "Yet");
+
+myLibrairy.push(livre01);
 
 function openCheck(modal) {
   if (modal.open) {
@@ -86,13 +54,14 @@ btnAddBook.addEventListener("click", function (e) {
         ? `${(bookRead.value = "Yet")}`
         : `${(bookRead.value = "Not Yet")}`;
 
-    myLibrairy.push({
-      code: myLibrairy.length + 1,
-      title: `${bookTitle.value}`,
-      author: `${bookAuthor.value}`,
-      page: `${bookPage.value}`,
-      read: `${readBook}`,
-    });
+    let newBook = new Book(
+      myLibrairy.length + 1,
+      `${bookTitle.value}`,
+      `${bookAuthor.value}`,
+      `${bookPage.value}`,
+      `${readBook}`
+    );
+    myLibrairy.push(newBook);
 
     errmessage.className = "successmessage";
     errmessage.innerText = "Your book is add";
@@ -117,16 +86,30 @@ function Book(id, title, author, page, read) {
   this.author = author;
   this.page = page;
   this.read = read;
-
-  this.info = function () {
-    console.log(`The ${this.title} 
-                  by ${this.author}, 
-                  ${this.page} pages, 
-                  not read ${this.read}
-                `);
-  };
 }
 
+Book.prototype.info = function () {
+  console.log(
+    `The ${this.title} by ${this.author}, ${this.page} pages, not read ${this.read}`
+  );
+};
+
+// info.prototype = Object.create(Book);
+
+Book.prototype.addButton = function () {
+  tr.forEach(function (tr) {
+    let button = document.createElement("button");
+    button.innerText = "buy";
+    button.className = "btn_buy";
+
+    let td = document.createElement("td");
+    td.appendChild(button);
+
+    tr.appendChild(td);
+  });
+};
+livre01.info();
+livre01.addButton();
 //Reset form
 function resetForm() {
   bookTitle.value = "";
@@ -135,6 +118,7 @@ function resetForm() {
   bookRead.checked = false;
   // errmessage.innerText = "";
 }
+
 // console.log(myLibrairy.length);
 function addBookToTable() {
   for (let i = 0; i < myLibrairy.length; i++) {
@@ -149,6 +133,7 @@ function addBookToTable() {
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
+
     tbody.appendChild(row);
   }
 }
