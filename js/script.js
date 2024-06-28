@@ -12,9 +12,13 @@ let tr = document.querySelectorAll("table tbody tr");
 
 const myLibrairy = [];
 
-let livre01 = new Book("1", "Vie avec conscience", "erickay", "100", "Yet");
+let livre01 = new Book("1", "Vie avec conscience", "erickay", "275", "Yet");
+let livre02 = new Book("2", "Mungu ni mukubwa", "The Odin", "354", "Yet");
+let livre03 = new Book("3", "J'apprecie ce cours", "Bunga", "576", "Not Yet");
 
 myLibrairy.push(livre01);
+myLibrairy.push(livre02);
+myLibrairy.push(livre03);
 
 function openCheck(modal) {
   if (modal.open) {
